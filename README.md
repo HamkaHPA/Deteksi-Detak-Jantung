@@ -192,21 +192,6 @@ EVM_FREQ_LOW = 0.83      # Batas bawah frequency band (~50 BPM)
 EVM_FREQ_HIGH = 1.0      # Batas atas frequency band (~60 BPM)
 ```
 
----
-
-## 📚 Referensi Akademis
-
-1. **ICA untuk rPPG:**
-   - Poh, M. Z., McDuff, D. J., & Picard, R. W. (2010). *Non-contact, automated cardiac pulse measurements using video imaging and blind source separation.* Optics Express, 18(10), 10762-10774.
-
-2. **Eulerian Video Magnification:**
-   - Wu, H. Y., Rubinstein, M., Shih, E., Guttag, J., Durand, F., & Freeman, W. (2012). *Eulerian video magnification for revealing subtle changes in the world.* ACM Transactions on Graphics, 31(4), 1-8.
-
-3. **rPPG Overview:**
-   - Wang, W., den Brinker, A. C., Stuijk, S., & de Haan, G. (2017). *Algorithmic principles of remote PPG.* IEEE Transactions on Biomedical Engineering, 64(7), 1479-1491.
-
----
-
 ## ⚠️ Disclaimer
 
 Sistem ini dibuat untuk **tujuan edukasi** dalam konteks tugas kuliah Sistem Teknologi Multimedia. 
