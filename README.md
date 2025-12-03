@@ -51,19 +51,6 @@ rPPG adalah teknik pengukuran sinyal fisiologis secara remote menggunakan kamera
 | **Error Recovery** | Crash on disconnect | ✅ Graceful handling dengan auto-reset |
 | **Akurasi Estimasi** | ⚠️ Hanya kondisi ideal | ✅ Robust terhadap variasi pencahayaan |
 
-### Perbandingan Teknis Algoritma
-
-| Fitur Teknis | POS (Demo Kelas) | ICA (Proyek Ini) |
-|:-------------|:-----------------|:-----------------|
-| **Prinsip Kerja** | Proyeksi sinyal ke bidang ortogonal terhadap skin-tone | Blind Source Separation untuk memisahkan sumber independen |
-| **Input** | RGB dari satu ROI | RGB dari ROI dahi dengan skin masking |
-| **Output** | 1 sinyal pulse | 3 komponen independen (dipilih yang paling pulse-like) |
-| **Filtering** | Bandpass sederhana | Butterworth bandpass + FFT analysis |
-| **Estimasi HR** | Peak counting atau FFT basic | FFT dengan analisis spektral full |
-| **Kompleksitas** | O(n) | O(n²) untuk ICA decomposition |
-| **Kelebihan** | Ringan, cepat | Robust, akurat, adaptive |
-| **Kelemahan** | Sensitif noise & cahaya | Lebih berat komputasi |
-
 ### Mengapa ICA Lebih Baik?
 
 **Basic Green Channel:**
