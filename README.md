@@ -34,17 +34,35 @@ rPPG adalah teknik pengukuran sinyal fisiologis secara remote menggunakan kamera
 
 ## 🔬 Perbandingan Metode
 
-### Tabel Perbandingan: Demo Kelas vs Proyek Ini
+### Tabel Perbandingan: Demo Kelas (POS) vs Proyek Ini (ICA + EVM)
 
-| Aspek | Demo Kelas (Basic Green Channel) | Proyek Ini (ICA + EVM) |
-|-------|----------------------------------|------------------------|
-| **Metode Ekstraksi Sinyal** | Rata-rata channel hijau (Green) saja | Independent Component Analysis (ICA) dari 3 channel RGB |
-| **Pemisahan Noise** | ❌ Tidak ada - sinyal tercampur dengan noise | ✅ ICA secara otomatis memisahkan komponen independen |
-| **Robustness terhadap Cahaya** | ⚠️ Rentan terhadap perubahan pencahayaan | ✅ Lebih robust karena ICA memisahkan komponen pencahayaan |
-| **Motion Artifacts** | ⚠️ Sangat terpengaruh gerakan | ✅ Lebih tahan karena gerakan terpisah sebagai komponen independen |
-| **Visualisasi Denyut** | ❌ Tidak ada visualisasi pada wajah | ✅ Eulerian Video Magnification memperbesar perubahan warna |
-| **Akurasi** | ⚠️ Akurat hanya dalam kondisi ideal | ✅ Lebih akurat dalam berbagai kondisi |
-| **Fitur Multimedia** | ❌ Hanya pemrosesan sinyal dasar | ✅ Termasuk video magnification sebagai fitur multimedia |
+| Aspek | Demo Kelas (POS) | Proyek Ini (ICA + EVM) |
+|:------|:-----------------|:-----------------------|
+| **Algoritma Utama** | POS (Plane-Orthogonal-to-Skin) | FastICA (Independent Component Analysis) |
+| **ROI (Region of Interest)** | Single (full face) | Multi-region (dahi + skin masking YCbCr) |
+| **Window Processing** | Fixed single window | Sliding window dengan buffer dinamis |
+| **Motion Handling** | ❌ Tidak ada penanganan | ✅ ICA memisahkan komponen gerakan sebagai noise |
+| **Noise Separation** | ❌ Tidak ada pemisahan noise | ✅ Blind Source Separation otomatis |
+| **FPS Handling** | Fixed (hardcoded) | Adaptive dengan FPS_TARGET konfigurabel |
+| **Threading** | Single thread | Single thread (optimized pipeline) |
+| **Visualisasi** | Text overlay sederhana | Sidebar panel dengan grafik BVP & FFT real-time |
+| **Visualisasi Denyut** | ❌ Tidak ada | ✅ Eulerian Video Magnification (EVM) |
+| **Logging/Debug** | Print statements | Print statements + status bar informatif |
+| **Error Recovery** | Crash on disconnect | ✅ Graceful handling dengan auto-reset |
+| **Akurasi Estimasi** | ⚠️ Hanya kondisi ideal | ✅ Robust terhadap variasi pencahayaan |
+
+### Perbandingan Teknis Algoritma
+
+| Fitur Teknis | POS (Demo Kelas) | ICA (Proyek Ini) |
+|:-------------|:-----------------|:-----------------|
+| **Prinsip Kerja** | Proyeksi sinyal ke bidang ortogonal terhadap skin-tone | Blind Source Separation untuk memisahkan sumber independen |
+| **Input** | RGB dari satu ROI | RGB dari ROI dahi dengan skin masking |
+| **Output** | 1 sinyal pulse | 3 komponen independen (dipilih yang paling pulse-like) |
+| **Filtering** | Bandpass sederhana | Butterworth bandpass + FFT analysis |
+| **Estimasi HR** | Peak counting atau FFT basic | FFT dengan analisis spektral full |
+| **Kompleksitas** | O(n) | O(n²) untuk ICA decomposition |
+| **Kelebihan** | Ringan, cepat | Robust, akurat, adaptive |
+| **Kelemahan** | Sensitif noise & cahaya | Lebih berat komputasi |
 
 ### Mengapa ICA Lebih Baik?
 
