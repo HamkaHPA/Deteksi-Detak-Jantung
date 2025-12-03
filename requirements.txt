@@ -1,0 +1,18 @@
+# =============================================================================
+# DEPENDENSI PROYEK: Sistem Monitor Detak Jantung rPPG Real-time
+# =============================================================================
+# Daftar library Python yang dibutuhkan untuk menjalankan aplikasi ini.
+# Instalasi: pip install -r requirements.txt
+# =============================================================================
+
+# OpenCV untuk pemrosesan video dan citra
+opencv-python>=4.5.0
+
+# NumPy untuk operasi array dan komputasi numerik
+numpy>=1.21.0
+
+# SciPy untuk pemrosesan sinyal (filter, FFT)
+scipy>=1.7.0
+
+# Scikit-learn untuk algoritma ICA (FastICA)
+scikit-learn>=1.0.0
