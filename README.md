@@ -43,7 +43,6 @@ rPPG adalah teknik pengukuran sinyal fisiologis secara remote menggunakan kamera
 | **Robustness terhadap Cahaya** | ⚠️ Rentan terhadap perubahan pencahayaan | ✅ Lebih robust karena ICA memisahkan komponen pencahayaan |
 | **Motion Artifacts** | ⚠️ Sangat terpengaruh gerakan | ✅ Lebih tahan karena gerakan terpisah sebagai komponen independen |
 | **Visualisasi Denyut** | ❌ Tidak ada visualisasi pada wajah | ✅ Eulerian Video Magnification memperbesar perubahan warna |
-| **Kompleksitas Implementasi** | Rendah (~20 baris kode) | Menengah-Tinggi (~800 baris kode) |
 | **Akurasi** | ⚠️ Akurat hanya dalam kondisi ideal | ✅ Lebih akurat dalam berbagai kondisi |
 | **Fitur Multimedia** | ❌ Hanya pemrosesan sinyal dasar | ✅ Termasuk video magnification sebagai fitur multimedia |
 
